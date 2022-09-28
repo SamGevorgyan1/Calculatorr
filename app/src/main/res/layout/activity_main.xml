@@ -34,13 +34,9 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonNumber1"
         app:layout_constraintEnd_toEndOf="@+id/buttonNumber5"
-
-        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toEndOf="@id/buttonNumber1"
-
-
         app:layout_constraintTop_toTopOf="@id/buttonNumber1"
-        app:layout_constraintVertical_bias="1.0" />
+         />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonNumber3"
