@@ -48,7 +48,6 @@
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/buttonNumber2"
         app:layout_constraintEnd_toEndOf="@+id/buttonNumber6"
-
         app:layout_constraintStart_toEndOf="@id/buttonNumber2"
         app:layout_constraintTop_toTopOf="@id/buttonNumber2"
         />
