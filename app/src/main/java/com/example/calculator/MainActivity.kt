@@ -106,8 +106,6 @@ buttonEqual.setOnClickListener {
         if (number.isNotEmpty())
             textInput.text = number.substring(0, number.length - 1)
 
-
-
 }
         }
 
