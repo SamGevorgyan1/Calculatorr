@@ -167,7 +167,6 @@ class MainActivity : AppCompatActivity() {
         return resultPlus
     }
 
-
     private fun checkUserInput(textView: TextView, value: String) {
         val text = textView.text.toString()
         var a = 1..9
