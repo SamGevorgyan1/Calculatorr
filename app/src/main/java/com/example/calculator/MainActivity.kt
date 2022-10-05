@@ -167,9 +167,10 @@ class MainActivity : AppCompatActivity() {
             text1.text = null
         }
 
-        if (text1.text.contains("//") || text1.text.contains("**") || text1.text.contains("++") || text1.text.contains(
-                "--"
-            )
+        if (text1.text.contains("//")
+            || text1.text.contains("**")
+            ||text1.text.contains("++")
+            ||text1.text.contains("--")
         ) {
             textInput.text = text.substring(0, text.length - 1)
         }
