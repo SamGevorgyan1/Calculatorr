@@ -61,17 +61,22 @@ class MainActivity : AppCompatActivity() {
         buttonPlus = findViewById(R.id.buttonPlus)
         buttonEqual = findViewById(R.id.buttonEqual)
 
-        buttonNumber1.setOnClickListener { set("1") }
-        buttonNumber2.setOnClickListener { set("2") }
-        buttonNumber3.setOnClickListener { set("3") }
-        buttonNumber4.setOnClickListener { set("4") }
-        buttonNumber5.setOnClickListener { set("5") }
-        buttonNumber6.setOnClickListener { set("6") }
-        buttonNumber7.setOnClickListener { set("7") }
-        buttonNumber8.setOnClickListener { set("8") }
-        buttonNumber9.setOnClickListener { set("9") }
-        buttonNumber00.setOnClickListener { set("00") }
-        buttonNumber0.setOnClickListener { set("0") }
+        buttonNumber1.setOnClickListener { setNumber("1") }
+        buttonNumber2.setOnClickListener { setNumber("2") }
+        buttonNumber3.setOnClickListener { setNumber("3") }
+        buttonNumber4.setOnClickListener { setNumber("4") }
+        buttonNumber5.setOnClickListener { setNumber("5") }
+        buttonNumber6.setOnClickListener { setNumber("6") }
+        buttonNumber7.setOnClickListener { setNumber("7") }
+        buttonNumber8.setOnClickListener { setNumber("8") }
+        buttonNumber9.setOnClickListener { setNumber("9") }
+        buttonNumber0.setOnClickListener { setNumber("0") }
+
+        buttonNumber00.setOnClickListener {
+            if (!textInput.text.toString().equals("")){
+                setNumber("00")
+            }
+        }
 
         buttonComma.setOnClickListener {
             Toast.makeText(this, "still not working", Toast.LENGTH_SHORT).show()
@@ -80,16 +85,22 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this, "still not working", Toast.LENGTH_SHORT).show()
         }
 
-        buttonPlus.setOnClickListener { set("+") }
-        buttonMinus.setOnClickListener { set("-") }
-        buttonMultiply.setOnClickListener { set("*") }
-        buttonDivide.setOnClickListener { set("/") }
+        buttonPlus.setOnClickListener { setSign(textInput,"+") }
+        buttonMinus.setOnClickListener {setSign(textInput,"-")}
+        buttonMultiply.setOnClickListener {setSign(textInput,"*")}
+        buttonDivide.setOnClickListener {setSign(textInput,"/")}
 
 
 
         buttonClear.setOnClickListener {
             textResult.text = ""
-            textInput.text = ""
+            textInput.text =null
+        }
+
+        buttonBack.setOnClickListener {
+            val number = textInput.text.toString()
+            if (number.isNotEmpty())
+                textInput.text = number.substring(0, number.length - 1)
         }
 
         buttonEqual.setOnClickListener {
@@ -111,24 +122,21 @@ class MainActivity : AppCompatActivity() {
                 textResult.text = r
             }
         }
-        buttonBack.setOnClickListener {
-            val number = textInput.text.toString()
-            if (number.isNotEmpty())
-                textInput.text = number.substring(0, number.length - 1)
-
-
-        }
     }
 
-    private fun set(s: String) {
-        checkUserInput(textInput, "*")
+    private fun setNumber(s: String) {
         checkUserInput(textInput, "0")
+        textInput.append(s)
+
+    }
+    private fun setSign(textView: TextView, sign:String){
+        checkUserInput(textInput, "*")
         checkUserInput(textInput, "+")
         checkUserInput(textInput, "/")
         checkUserInput(textInput, "-")
-
-        textInput.append(s)
-
+        if (!textView.text.toString().equals("")){
+            textView.append(sign)
+        }
     }
 
     private fun multiply(s: String): String {
@@ -171,6 +179,19 @@ class MainActivity : AppCompatActivity() {
             || textView.text.contains("**")
             ||textView.text.contains("++")
             ||textView.text.contains("--")
+            ||textView.text.contains("-+")
+            ||textView.text.contains("+-")
+            ||textView.text.contains("+*")
+            ||textView.text.contains("*+")
+            ||textView.text.contains("+/")
+            ||textView.text.contains("/+")
+            ||textView.text.contains("/*")
+            ||textView.text.contains("*/")
+            ||textView.text.contains("/-")
+            ||textView.text.contains("-/")
+            ||textView.text.contains("*-")
+            ||textView.text.contains("-*")
+
         ) {
             textInput.text = text.substring(0, text.length - 1)
         }
