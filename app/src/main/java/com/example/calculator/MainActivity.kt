@@ -160,17 +160,17 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun checkUserInput(text1: TextView, value: String) {
-        val text = text1.text.toString()
+    private fun checkUserInput(textView: TextView, value: String) {
+        val text = textView.text.toString()
         var a = 1..9
         if (text.take(1) == value) {
-            text1.text = null
+            textView.text = null
         }
 
-        if (text1.text.contains("//")
-            || text1.text.contains("**")
-            ||text1.text.contains("++")
-            ||text1.text.contains("--")
+        if (textView.text.contains("//")
+            || textView.text.contains("**")
+            ||textView.text.contains("++")
+            ||textView.text.contains("--")
         ) {
             textInput.text = text.substring(0, text.length - 1)
         }
