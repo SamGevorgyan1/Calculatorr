@@ -91,7 +91,6 @@ class MainActivity : AppCompatActivity() {
         buttonDivide.setOnClickListener {setSign(textInput,"/")}
 
 
-
         buttonClear.setOnClickListener {
             textResult.text = ""
             textInput.text =null
