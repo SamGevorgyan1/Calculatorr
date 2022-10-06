@@ -2,6 +2,8 @@ package com.example.calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
@@ -51,6 +53,21 @@ class MainActivity : AppCompatActivity() {
         buttonNumber0 = findViewById(R.id.buttonNumber0)
         buttonNumber00 = findViewById(R.id.buttonNumber00)
         buttonComma = findViewById(R.id.buttonComma)
+
+        textInput.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+                TODO("Not yet implemented")
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                TODO("Not yet implemented")
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                TODO("Not yet implemented")
+            }
+
+        })
 
         buttonClear = findViewById(R.id.buttonClear)
         buttonPercent = findViewById(R.id.buttonPercent)
@@ -103,6 +120,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonEqual.setOnClickListener {
+
+
 
             if (textInput.text.toString().contains('*')) {
                 val r = multiply(textInput.text.toString())
